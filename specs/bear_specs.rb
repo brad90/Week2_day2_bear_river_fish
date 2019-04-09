@@ -43,8 +43,8 @@ class TestBear < MiniTest::Test
     assert_equal(false,@bear3.is_bear_hungry)
   end
 #this is correct
-  def test_eating_fish_in_river
-    @bear1.eating_from_the_river(@river1.fish_in_river_total)
+  def test_eating_fish_from_river
+    @bear1.eating_fish_from_the_river(@river1.fish_in_river_total)
     assert_equal(1,@bear1.food_in_belly_count)
   end
 

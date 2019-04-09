@@ -11,7 +11,7 @@ class TestRiver < MiniTest::Test
   end
 
   def test_what_is_the_river_name
-    @river.name
+    assert_equal('Thames',@river.name)
   end
 
   def test_number_of_fish
@@ -24,18 +24,13 @@ class TestRiver < MiniTest::Test
     assert_equal(3,@river.number_of_fish_count)
   end
 
-  # def test_no_fish_added_to_the_river
-  #   new_fish_to_river = Fish.new("")
-  #   @river.add_fish_to_river(new_fish_to_river.name)
-  #   assert_equal(0,@river.number_of_fish_count)
-  # end
-
   def test_fish_in_the_river
     assert_equal( ["Bob","Jim"], @river.fish_in_river_total)
   end
 
-  def test_adding_fish_to_river
-    assert_equal(["Bob","Jim","Fish", "Fish", "Fish"], @river.fish_in_river_total)
+  def test_adding_fish_to_river_when_stock_low
+    @river.add_fish_when_low_stock
+    assert_equal(["Bob","Jim","Fish","Fish","Fish"], @river.fish_in_river_total)
   end
 
 end
